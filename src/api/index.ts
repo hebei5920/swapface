@@ -20,7 +20,7 @@ export const swapFaceApi = async (
     sourceImage: File,
     targetImage: File,
     onProgress?: (progress: number) => void
-) => {
+): Promise<string> => {
     try {
         // 检查是否上传了两张图片
         if (!sourceImage || !targetImage) {
@@ -49,27 +49,31 @@ export const swapFaceApi = async (
             swap_image: sourceImageBase64,
             input_image: targetImageBase64
         }
-        fetch(WORKER_URL, {
+
+        const response = await fetch(WORKER_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestData)
-        }).then(res => res.json()).then(res => {
-            console.log(res);
-            
-            if (onProgress) {
-                onProgress(100); // 完成时显示100%进度
-            }
-            if (res.urls.stream) {
-                return res.urls.stream;
-            } else {
-                throw new Error("Failed to swap faces. Please try again.");
-            }
-        })
+        });
 
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
 
+        const data = await response.json();
+        console.log('API response:', data);
 
+        if (onProgress) {
+            onProgress(100); // 完成时显示100%进度
+        }
+
+        if (data.urls && data.urls.stream) {
+            return data.urls.stream;
+        } else {
+            throw new Error("Failed to get result URL. Please try again.");
+        }
 
     } catch (error) {
         console.error("Error in face swap:", error);
