@@ -56,7 +56,8 @@ export const swapFaceApi = async (
             },
             body: JSON.stringify(requestData)
         }).then(res => res.json()).then(res => {
-
+            console.log(res);
+            
             if (onProgress) {
                 onProgress(100); // 完成时显示100%进度
             }
