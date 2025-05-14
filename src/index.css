@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root.theme-purple {
+  --primary-color: #9333ea;
+  --bg-color: #f5f3ff;
+  --text-color: #4c1d95;
+}
+
+:root.theme-blue {
+  --primary-color: #2563eb;
+  --bg-color: #eff6ff;
+  --text-color: #1e3a8a;
+}
+
+:root.theme-bright {
+  --primary-color: #f97316;
+  --bg-color: #fff7ed;
+  --text-color: #c2410c;
+}
+
+.theme-purple .bg-white {
+  background-color: var(--bg-color);
+}
+
+.theme-purple .text-gray-700 {
+  color: var(--text-color);
+}
+
+.theme-blue .bg-white {
+  background-color: var(--bg-color);
+}
+
+.theme-blue .text-gray-700 {
+  color: var(--text-color);
+}
+
+.theme-bright .bg-white {
+  background-color: var(--bg-color);
+}
+
+.theme-bright .text-gray-700 {
+  color: var(--text-color);
+}

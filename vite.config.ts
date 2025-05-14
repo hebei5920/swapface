@@ -1,0 +1,22 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  optimizeDeps: {
+    exclude: ['lucide-react'],
+  },
+  server: {
+    proxy: {
+      '/api/replicate': {
+        target: 'https://api.replicate.com/v1/predictions',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/replicate/, ''),
+        headers: {
+          'Authorization': 'Bearer r8_OI1uZs9HKgTmsNqbNysYR8GLqlgJxi32ja5T5'
+        }
+      }
+    }
+  }
+});
