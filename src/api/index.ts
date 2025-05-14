@@ -46,8 +46,8 @@ export const swapFaceApi = async (
 
         console.log("调用Replicate API...");
         const requestData = {
-            swap_image: sourceImageBase64,
-            input_image: targetImageBase64
+            swap_image: 'data:application/octet-stream' + sourceImageBase64,
+            input_image: 'data:application/octet-stream' + targetImageBase64
         }
 
         const response = await fetch(WORKER_URL, {
