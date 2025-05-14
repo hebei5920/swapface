@@ -79,10 +79,12 @@ const Swap: React.FC = () => {
     setProgress(0);
 
     try {
-      const result = await swapFaceApi(sourceImage, targetImage, (progress) => {
+      swapFaceApi(sourceImage, targetImage, (progress) => {
         setProgress(progress);
-      });
-      setResultImage(result!);
+      }).then(res=>{
+      console.log("result",res)
+      setResultImage(res!);
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : t('swap.error.generic'));
     } finally {
