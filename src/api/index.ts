@@ -59,8 +59,10 @@ export const swapFaceApi = async (
             if (onProgress) {
                 onProgress(100); // 完成时显示100%进度
             }
-            if (res.urls.stream) {
-                return res.urls.stream;
+             if (res.urls.stream) {
+                return new Promise((resolve, reject) => {
+                    resolve(res.urls.stream);
+                })
             } else {
                 throw new Error("Failed to swap faces. Please try again.");
             }
