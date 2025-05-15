@@ -1,5 +1,7 @@
+import { env } from "process";
 
 const WORKER_URL = 'https://swap-face-api.hebei5920.workers.dev/';
+
 
 const convertFileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -21,6 +23,7 @@ export const swapFaceApi = async (
     onProgress?: (progress: number) => void
 ): Promise<string> => {
     try {
+        const tk = import.meta.env.VITE_TK;
         // 检查是否上传了两张图片
         if (!sourceImage || !targetImage) {
             throw new Error('请上传两张图片：sourceImage和targetImage');
@@ -52,7 +55,7 @@ export const swapFaceApi = async (
         const response = await fetch(WORKER_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(requestData)
         });

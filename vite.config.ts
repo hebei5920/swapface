@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, process.cwd(), '');
-  console.log(env.VITE_TK); // 检查环境变量是否被正确加载
+  console.log("dddd+++++++++++++",env.VITE_TK);
 
   return {
     plugins: [react()],
