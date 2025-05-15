@@ -14,7 +14,7 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/replicate/, ''),
         headers: {
-          'Authorization': 'Bearer r8_OI1uZs9HKgTmsNqbNysYR8GLqlgJxi32ja5T5'
+          'Authorization': 'Bearer r8_Kn3Rl27pd42GRUzmLmwAcyhPeFETWh948ZvAD'
         }
       }
     }
