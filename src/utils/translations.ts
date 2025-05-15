@@ -11,7 +11,7 @@ type Translations = {
 export const translations: Translations = {
   en: {
     // Common
-    'app.name': 'FaceSwap+++',
+    'app.name': 'FaceSwap',
     'app.tagline': 'Swap faces in photos instantly',
     'common.loading': 'Loading...',
     'common.error': 'An error occurred',
@@ -24,7 +24,7 @@ export const translations: Translations = {
     'common.try': 'Try Now',
     
     // Navigation
-    'nav.home': 'Home',
+    'nav.home': 'Home+++',
     'nav.swap': 'Swap Faces',
     'nav.gallery': 'Gallery',
     'nav.profile': 'Profile',
