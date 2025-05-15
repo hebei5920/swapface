@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -14,7 +15,7 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/replicate/, ''),
         headers: {
-          'Authorization': 'Bearer r8_Kn3Rl27pd42GRUzmLmwAcyhPeFETWh948ZvAD'
+          'Authorization': `Bearer ${process.env.VITE_TK}`
         }
       }
     }
