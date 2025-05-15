@@ -24,7 +24,7 @@ export const translations: Translations = {
     'common.try': 'Try Now',
     
     // Navigation
-    'nav.home': 'Home+++',
+    'nav.home': 'Home',
     'nav.swap': 'Swap Faces',
     'nav.gallery': 'Gallery',
     'nav.profile': 'Profile',
